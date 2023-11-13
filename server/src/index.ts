@@ -1,12 +1,10 @@
 const express = require('express');
+import categoryRouter  from './routers/category-router';
+
 const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-//Cost
-app.get('/costs');
-app.post('/costs');
-app.put('/costs');
-app.delete('/costs');
+app.use('/categories', categoryRouter);
 
 app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));

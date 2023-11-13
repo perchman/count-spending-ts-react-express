@@ -1,4 +1,9 @@
 export interface CategoryRawInterface {
-    uuid: number,
-    name: string
+    uuid: string | null;
+    name: string;
+}
+
+export interface CategoryInterface {
+    name: string;
+    checkCanRemove() : Promise<void>
 }

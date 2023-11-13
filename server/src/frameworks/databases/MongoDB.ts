@@ -1,6 +1,6 @@
 import { MongoClient, Db, ClientSession } from 'mongodb';
-import MongoDBInterface from '../types/mongoDB-interface';
-// const MongoClient = require('mongodb').MongoClient;
+import { MongoDBInterface } from '../types/mongoDB-interface';
+
 module.exports = class MongoDB implements MongoDBInterface {
     name: string;
     client: MongoClient;

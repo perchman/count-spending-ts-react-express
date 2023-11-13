@@ -1,6 +1,6 @@
 import { MongoClient, Db } from 'mongodb';
 
-export default interface MongoDBInterface {
+export interface MongoDBInterface {
     name: string;
     client: MongoClient;
     db?: Db;
