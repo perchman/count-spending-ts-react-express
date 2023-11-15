@@ -4,10 +4,10 @@ const controller = require('../controllers/category-controller');
 
 const router = Router();
 
-router.get('/:id',  controller.getCategoryByUuid);
-router.get('/', controller.getPartCategories);
+router.get('/:uuid',  controller.getCategoryByUuid);
+router.get('/:page/:sort/:size', controller.getPartCategories);
 router.post('/', controller.createCategory);
-router.put('/:id', controller.updateCategory);
-router.delete('/:id', controller.deleteCategory);
+router.put('/:uuid', controller.updateCategory);
+router.delete('/:uuid', controller.deleteCategory);
 
 export default router;

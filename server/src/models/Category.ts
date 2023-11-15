@@ -1,8 +1,8 @@
-import { CategoryRawInterface, CategoryInterface } from "../frameworks/types/category-interfaces";
-import {MongoDBActiveRecordModelInterface} from "../frameworks/types/mongoDBActiveRecordModel-interface";
+import { CategoryItem } from "../frameworks/types/category-interfaces";
+import Cost from "./Cost";
+import MongoDBActiveRecordModel from "../MongoDBActiveRecordModel";
 
-const MongoDBActiveRecordModel = require('../MongoDBActiveRecordModel');
-export class Category extends MongoDBActiveRecordModel implements CategoryInterface, MongoDBActiveRecordModelInterface {
+export default class Category extends MongoDBActiveRecordModel {
     name: string
 
     constructor(uuid: string | null, name: string) {
@@ -10,20 +10,16 @@ export class Category extends MongoDBActiveRecordModel implements CategoryInterf
         this.name = name;
     }
 
-    static getEntityName() : string {
+    static getEntityName(): string {
         return 'category';
     }
 
-    static getDatabaseName() : string {
+    static getDatabaseName(): string {
         return 'Default';
     }
 
-    static makeModel(data : CategoryInterface) : Category {
-        return new Category(data.uuid, data.name);
-    }
-
-    static async create(name: string) : Promise<Category> {
-        const category : Category = new Category(
+    static async create(name: string): Promise<Category> {
+        const category: Category = new Category(
             null,
             name
         )
@@ -33,29 +29,28 @@ export class Category extends MongoDBActiveRecordModel implements CategoryInterf
         return category;
     }
 
-    toJSON() : CategoryRawInterface {
-        let obj : CategoryRawInterface = {
+    static makeModel(data: CategoryItem): Category {
+        return new Category(data.uuid, data.name);
+    }
+
+    toJSON(): CategoryItem {
+        return {
             uuid: this.uuid,
             name: this.name
-        }
-
-        return obj;
+        };
     }
 
-    async checkCanRemove() : Promise<void> {
-        const db = (this.constructor as typeof Category).getDatabase();
-        const collection = db.collection('cost');
+    async checkCanRemove(): Promise<void> {
+        if (!this.uuid) {
+            throw new Error('Uuid is null. Method cannot be used without uuid');
+        }
 
-        const costs = await collection.find().toArray();
-
-        for (let cost in costs) {
-            if (costs[cost].category.uuid === this.uuid) {
-                throw new Error(`Can't delete category ${this.name}. The category has costs.`);
-            }
+        if (await Cost.existsCostsHasCategory(this.uuid)) {
+            throw new Error(`Can't delete category ${this.name}. The category has costs.`);
         }
     }
 
-    async delete() : Promise<void> {
+    async delete(): Promise<void> {
         await this.checkCanRemove();
         await super.delete();
     }

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Category } from "../models/Category";
+import Category from "../models/Category";
 
 const getCategoryByUuid = async (req: Request, res: Response) : Promise<void> => {
     res.send(await Category.getByUuid(req.params.uuid));
@@ -8,8 +8,8 @@ const getCategoryByUuid = async (req: Request, res: Response) : Promise<void> =>
 const getPartCategories = async (req: Request, res: Response) : Promise<void> => {
     res.send({
         items: await Category.getPart(
-            req.params.sort,
             parseInt(req.params.page),
+            req.params.sort,
             parseInt(req.params.size),
         ),
         totalCount: await Category.getCount()
@@ -17,7 +17,7 @@ const getPartCategories = async (req: Request, res: Response) : Promise<void> =>
 }
 
 const createCategory = async (req: Request, res: Response) : Promise<void>  => {
-    const category = await Category.create(req.body.name);
+    const category : Category = await Category.create(req.body.name);
 
     res.send(category);
 }

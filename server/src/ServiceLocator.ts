@@ -1,4 +1,4 @@
-module.exports = class ServiceLocator {
+export default class ServiceLocator {
     private static instances : { [name: string]: any } = {};
     static set<Type>(name: string, instance: Type) : void {
         this.instances[name] = instance;

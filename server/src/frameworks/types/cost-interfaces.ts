@@ -1,17 +1,11 @@
-import { CategoryInterface } from "./category-interfaces";
+import { CategoryItem } from "./category-interfaces";
+import { ObjectId } from "mongodb";
 
-// export interface CostRawInterface {
-//     uuid: string,
-//     date: number,
-//     category: CategoryRawInterface,
-//     price: number,
-//     description: string
-// }
-
-export interface CostInterface {
-    uuid: string,
+export interface CostItem {
+    _id?: ObjectId
+    uuid: string | null,
     date: number,
-    category: CategoryInterface,
+    category: CategoryItem,
     price: number,
     description: string
 }

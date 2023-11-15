@@ -1,0 +1,4 @@
+# curl --location 'http://localhost:5000/costs/1/date_asc/5'
+GET http://localhost:5000/categories/1/date_desc/5
+
+###
