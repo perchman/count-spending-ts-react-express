@@ -34,7 +34,7 @@ export default class HistoryBalanceChange extends MongoDBActiveRecordModel {
         return historyBalanceChange;
     }
 
-    static makeModel(data: HistoryBalanceChangeItem): HistoryBalanceChange {
+    static async makeModel(data: HistoryBalanceChangeItem): Promise<HistoryBalanceChange> {
         return new HistoryBalanceChange(
             data.uuid,
             new Date(data.date),

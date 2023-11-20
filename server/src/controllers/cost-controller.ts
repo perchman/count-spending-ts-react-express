@@ -2,11 +2,11 @@ import { Request, Response } from 'express';
 import Cost from "../models/Cost";
 import Category from "../models/Category";
 
-const getCostByUuid = async (req: Request, res: Response) : Promise<void> => {
+const getCostByUuid = async (req: Request, res: Response): Promise<void> => {
     res.send(await Cost.getByUuid(req.params.uuid))
 }
 
-const getPartCosts = async (req: Request, res: Response) : Promise<void>  => {
+const getPartCosts = async (req: Request, res: Response): Promise<void>  => {
     res.send(
         {
             items: await Cost.getPart(
@@ -19,9 +19,9 @@ const getPartCosts = async (req: Request, res: Response) : Promise<void>  => {
     );
 }
 
-const createCost = async (req: Request, res: Response) : Promise<void> => {
+const createCost = async (req: Request, res: Response): Promise<void> => {
     try {
-        const cost : Cost = await Cost.create(
+        const cost: Cost = await Cost.create(
             new Date(req.body.date),
             await Category.getByUuid(req.body.category),
             parseInt(req.body.price),
@@ -34,9 +34,9 @@ const createCost = async (req: Request, res: Response) : Promise<void> => {
     }
 }
 
-const updateCost = async (req: Request, res: Response) : Promise<void> => {
+const updateCost = async (req: Request, res: Response): Promise<void> => {
     try {
-        const cost : Cost = await Cost.getByUuid(req.params.uuid);
+        const cost: Cost = await Cost.getByUuid<Cost>(req.params.uuid);
 
         cost.date = new Date(req.body.date);
         cost.category = await Category.getByUuid(req.body.category);
@@ -51,8 +51,8 @@ const updateCost = async (req: Request, res: Response) : Promise<void> => {
     }
 }
 
-const deleteCost = async (req: Request, res: Response) : Promise<void> => {
-    const cost : Cost = await Cost.getByUuid(req.params.uuid);
+const deleteCost = async (req: Request, res: Response): Promise<void> => {
+    const cost: Cost = await Cost.getByUuid<Cost>(req.params.uuid);
 
     await cost.delete();
 

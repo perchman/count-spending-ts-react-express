@@ -33,7 +33,7 @@ export default class MongoDBActiveRecordModel {
         return manager.db;
     }
 
-    static makeModel(data: any): any {
+    static async makeModel(data: any): Promise<any> {
         throw new Error('This method in not implemented');
     }
 
@@ -77,10 +77,10 @@ export default class MongoDBActiveRecordModel {
             .toArray();
     }
 
-    static async getByUuidRaw(uuid: string): Promise<WithId<Document>> {
+    static async getByUuidRaw(uuid: string): Promise<any> {
         const db: Db = this.getDatabase();
         const collection: Collection<Document> = db.collection(this.getEntityName());
-        const result: WithId<Document> | null = await collection.findOne({ uuid: uuid});
+        const result: any | null = await collection.findOne({ uuid: uuid});
 
         if (!result) {
             throw new Error('Document with uuid' + uuid + 'not found.');
@@ -89,10 +89,10 @@ export default class MongoDBActiveRecordModel {
         return result;
     }
 
-    static async getByUuid(uuid: string) {
-        const obj : WithId<Document> = await this.getByUuidRaw(uuid);
+    static async getByUuid<ModelType extends MongoDBActiveRecordModel>(uuid: string): Promise<ModelType> {
+        const obj: any = await this.getByUuidRaw(uuid);
 
-        return this.makeModel(obj);
+        return await this.makeModel(obj);
     }
 
     toJSON(): any {

@@ -29,7 +29,7 @@ export default class Category extends MongoDBActiveRecordModel {
         return category;
     }
 
-    static makeModel(data: CategoryItem): Category {
+    static override async makeModel(data: CategoryItem): Promise<Category> {
         return new Category(data.uuid, data.name);
     }
 
