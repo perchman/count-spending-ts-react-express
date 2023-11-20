@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM, {Root} from "react-dom/client";
+import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
@@ -10,7 +10,7 @@ if (!rootElement) {
     throw new Error("HTML element 'root' is null");
 }
 
-const root: Root = ReactDOM.createRoot(rootElement);
+const root = ReactDOM.createRoot(rootElement);
 root.render(
     <BrowserRouter>
         <App />

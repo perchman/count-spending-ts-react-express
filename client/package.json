@@ -1,23 +1,19 @@
 {
-  "name": "count-spending-react-ts",
+  "name": "count-spending-client",
   "version": "1.0.0",
-  "description": "count-spending-react-ts",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open"
   },
-  "author": "Vladimir Okunev",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.23.3",
-    "@babel/preset-env": "^7.23.3",
-    "@babel/preset-react": "^7.23.3",
-    "@babel/preset-typescript": "^7.23.3",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "ts-loader": "^9.5.1",
-    "typescript": "^5.2.2",
-    "webpack": "^5.89.0",
+    "typescript": "^5.3.2",
+    "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   },
@@ -26,6 +22,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
-    "react-router-dom": "^6.19.0"
-  }
+    "react-router-dom": "^6.14.2"
+  },
+  "description": ""
 }
