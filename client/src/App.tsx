@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-// import Layout from "./framework/components/Layout.jsx";
+import Layout from "./components/Layout";
 
 // import CostIndex from "./view/cost/CostIndex.jsx";
 // import CostCreate from "./view/cost/CostCreate.jsx";
@@ -24,7 +24,7 @@ export default function App() {
     return (
         <>
             <Routes>
-                {/*<Route path="?" element={ <Layout /> }>*/}
+                <Route path="?" element={ <Layout /> }>
                 {/*    <Route index element={ <CostIndex /> }/>*/}
                 {/*    <Route path="cost/create" element={ <CostCreate /> }/>*/}
                 {/*    <Route path="cost/update/:uuid" element={ <CostUpdate /> }/>*/}
@@ -39,7 +39,7 @@ export default function App() {
                 {/*    <Route path="balance/replenish" element={ <BalanceReplenish /> }/>*/}
                 {/*    <Route path="balance/history" element={ <BalanceHistory /> }/>*/}
                 {/*    <Route path="balance/history/delete/:uuid" element={ <HistoryBalanceChangeDelete /> }/>*/}
-                {/*</Route>*/}
+                </Route>
             </Routes>
         </>
     );

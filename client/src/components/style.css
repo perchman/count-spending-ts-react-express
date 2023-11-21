@@ -1,0 +1,20 @@
+@import "../fonts/NunitoSans/NunitoSans.css";
+@import "../fonts/Montserrat/Montserrat.css";
+
+* {
+    margin: 0;
+}
+
+body {
+    font-family: "Nunito Sans", "Montserrat";
+    font-size: 16px;
+    color: #888FA7;
+    height: 100vh;
+    background: linear-gradient( -45deg, #E9F2FD, #FFE7E7);
+}
+
+.container {
+    max-width: 1125px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
