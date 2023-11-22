@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Layout from "./components/Layout";
 
-// import CostIndex from "./view/cost/CostIndex.jsx";
+import CostIndex from "./pages/costs/CostIndex";
 // import CostCreate from "./view/cost/CostCreate.jsx";
 // import CostUpdate from "./view/cost/CostUpdate.jsx";
 // import CostDelete from "./view/cost/CostDelete.jsx";
@@ -25,7 +25,7 @@ export default function App() {
         <>
             <Routes>
                 <Route path="?" element={ <Layout /> }>
-                {/*    <Route index element={ <CostIndex /> }/>*/}
+                    <Route index element={ <CostIndex /> }/>
                 {/*    <Route path="cost/create" element={ <CostCreate /> }/>*/}
                 {/*    <Route path="cost/update/:uuid" element={ <CostUpdate /> }/>*/}
                 {/*    <Route path="cost/delete/:uuid" element={ <CostDelete />}/>*/}
