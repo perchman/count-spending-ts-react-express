@@ -5,7 +5,7 @@ export interface CostItem {
     _id?: ObjectId
     uuid: string | null,
     date: number,
-    category: CategoryItem,
+    categoryUuid: string,
     price: number,
     description: string
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import {Field} from "react-final-form";
 
 import style from "./Field.module.css";
 
@@ -10,12 +11,15 @@ interface TextField {
 
 export default function TextField({name, placeholder, value}: TextField) {
     return (
-        <input
-            type="text"
-            className={style.input}
+        <Field
             name={name}
-            placeholder={placeholder}
-            defaultValue={value}
+            // defaultValue={value} ?
+            render={({ input, meta }) => (
+                <div>
+                    <input type="text" className={style.field} {...input} placeholder={placeholder}/>
+                    {meta.touched && meta.error && <span>{meta.error}</span>}
+                </div>
+            )}
         />
     );
 }

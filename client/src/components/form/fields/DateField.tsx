@@ -1,4 +1,5 @@
 import React from "react";
+import {Field} from "react-final-form";
 
 import style from "./Field.module.css";
 
@@ -9,11 +10,15 @@ interface DateField {
 
 export default function DateField({name, value}: DateField) {
     return (
-        <input
-            type="date"
-            className={style.input}
+        <Field
             name={name}
-            defaultValue={value}
+            // defaultValue={value} ?
+            render={({ input, meta }) => (
+                <div>
+                    <input type="date" className={style.field} {...input}/>
+                    {meta.touched && meta.error && <span>{meta.error}</span>}
+                </div>
+            )}
         />
     );
 }

@@ -6,6 +6,7 @@
         "esModuleInterop": true,
         "jsx": "react",
         "moduleResolution": "node",
+//        "suppressImplicitAnyIndexErrors": true
     },
     "include": [
         "src/**/*.ts",

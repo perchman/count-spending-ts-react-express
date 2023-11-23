@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {Field} from "react-final-form";
 
 import style from "./Field.module.css";
 
@@ -22,15 +23,19 @@ export default function DropdownField({name, selected, disabledOption, getData}:
     // }, []);
 
     return (
-        <select
-            className={style.select}
+        <Field
             name={name}
-            defaultValue={selectedOption}
-        >
-            <option disabled hidden value='selected'>{disabledOption}</option>
-            <option>gg</option>
-            <option>hh</option>
-        </select>
+            // defaultValue={selectedOption} ?
+            render={({ input, meta }) => (
+                <div>
+                    <select defaultValue={selected} className={style.field}>
+                        <option disabled hidden value='selected'>{disabledOption}</option>
+                        <option>gg</option>
+                        <option>hh</option>
+                    </select>
+                </div>
+            )}
+        />
     );
 }
 

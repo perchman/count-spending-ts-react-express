@@ -13,23 +13,8 @@ export default function CostIndex() {
     return (
         <div className={style.section}>
             <div className={style.inner}>
-                <h2 className={style.title}>Costs</h2>
+                <h1 className={style.title}>Costs</h1>
                 <LinkButton path="/cost/create" text="Add"/>
-
-                <form>
-                    <div>
-                        <TextField name="text" placeholder="text" />
-                    </div>
-                    <div>
-                        <NumberField name="number" placeholder="number" />
-                    </div>
-                    <div>
-                        <DateField name="date" />
-                    </div>
-                    <div>
-                        <DropdownField name="dropdown" selected="gg" disabledOption="gg" getData={() => 'gg'} />
-                    </div>
-                </form>
             </div>
         </div>
     );

@@ -44,7 +44,7 @@ export default class Cost extends MongoDBActiveRecordModel {
         return new Cost(
             data.uuid,
             new Date(data.date),
-            await Category.getByUuid(data.category.uuid as string),
+            await Category.getByUuid(data.categoryUuid as string),
             data.price,
             data.description
         );
@@ -67,7 +67,7 @@ export default class Cost extends MongoDBActiveRecordModel {
     static async existsCostsHasCategory(categoryUuid : string) : Promise<boolean> {
         const costs = await Cost.getAllRaw();
         for (let cost in costs) {
-            if (costs[cost].category.uuid === categoryUuid) {
+            if (costs[cost].categoryUuid === categoryUuid) {
                 return true;
             }
         }
@@ -75,10 +75,14 @@ export default class Cost extends MongoDBActiveRecordModel {
     }
 
     toJSON(): CostItem {
+        if (!this.category.uuid) {
+            throw new Error("The category uuid is null. Method cannot be used without uuid");
+        }
+
         return {
             uuid: this.uuid,
             date: new Date(this.date).getTime(),
-            category: this.category.toJSON(),
+            categoryUuid: this.category.uuid,
             price: this.price,
             description: this.description
         };

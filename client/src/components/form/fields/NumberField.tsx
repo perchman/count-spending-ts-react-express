@@ -1,5 +1,7 @@
-import style from "./Field.module.css";
 import React from "react";
+import {Field} from "react-final-form";
+
+import style from "./Field.module.css";
 
 interface NumberField {
     name: string;
@@ -9,12 +11,15 @@ interface NumberField {
 
 export default function NumberField({name, placeholder, value}: NumberField) {
     return (
-        <input
-            type="number"
-            className={style.input}
+        <Field
             name={name}
-            placeholder={placeholder}
-            defaultValue={value}
+            // defaultValue={value} ?
+            render={({ input, meta }) => (
+                <div>
+                    <input type="number" className={style.field} {...input} placeholder={placeholder}/>
+                    {meta.touched && meta.error && <span>{meta.error}</span>}
+                </div>
+            )}
         />
     );
 }
