@@ -3,6 +3,7 @@ import {Form} from 'react-final-form';
 import {FormWrapper, Field} from '../../../types/form';
 import {Validator} from "../../../types/validator";
 
+import Message from "../message/Message";
 import SubmitButton from "./button/SubmitButton";
 
 import ValidatorFactory from "./validators/ValidatorFactory";
@@ -10,7 +11,7 @@ import ValidatorFactory from "./validators/ValidatorFactory";
 import style from "./Form.module.css";
 
 export default function FormWrapper<T>({id, fields, handlerSubmit}: FormWrapper) {
-    const [responseError, setResponseError] = useState('');
+    const [responseError, setResponseError] = useState<string | null>(null);
 
     const onSubmit = (values: T) => {
         const errors: { [key: string]: string } = {};
@@ -43,7 +44,7 @@ export default function FormWrapper<T>({id, fields, handlerSubmit}: FormWrapper)
             onSubmit={onSubmit}
             render={({handleSubmit}) => {
                 return <form id={id} onSubmit={handleSubmit}>
-                    <div className={style.error}>{"error"}</div>
+                    { responseError === null ? null : <Message status="error" text={responseError}/> }
                     {
                         Object.values(fields).map((item: Field, index: number) => {
                             return <div className={style.item} key={'field-' + index}>
