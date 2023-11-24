@@ -8,7 +8,7 @@ interface LinkButton {
     text: string;
 }
 
-export default function AddButton({path, text}: LinkButton) {
+export default function LinkButton({path, text}: LinkButton) {
     return (
         <div className={style.wrapper}>
             <Link to={path} className={style.btn}>{text}</Link>

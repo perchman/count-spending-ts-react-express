@@ -1,19 +1,20 @@
-// import React from "react";
-// import {Link} from "react-router-dom";
-//
-// // import Grid from "../../framework/components/grid/Grid.jsx";
-// // import GridDeleteButton from "../../framework/components/grid/buttons/delete/GridDeleteButton.jsx";
-// // import GridUpdateButton from "../../framework/components/grid/buttons/update/GridUpdateButton.jsx";
-//
-// import style from "../Page.module.css";
-//
+import React from "react";
+import {Category} from "../../types/entities";
+
+// import Grid from "../../framework/components/grid/Grid.jsx";
+// import GridDeleteButton from "../../framework/components/grid/buttons/delete/GridDeleteButton.jsx";
+// import GridUpdateButton from "../../framework/components/grid/buttons/update/GridUpdateButton.jsx";
+import LinkButton from "../../components/common/buttons/add/LinkButton";
+
+import style from "../Section.module.css";
+
 // const config = {
 //     requestEndpoint: 'http://localhost:5000/categories',
 //     fields: {
 //         name: {
 //             text: 'Name',
 //             sort: true,
-//             value: (category) => {
+//             value: (category: Category) => {
 //                 return category.name;
 //             }
 //         }
@@ -28,31 +29,27 @@
 //         {
 //             key: 'update',
 //             component: GridUpdateButton,
-//             createUrl: (uuid) => {
+//             createUrl: (uuid: string) => {
 //                 return `/category/update/${uuid}`
 //             }
 //         },
 //         {
 //             key: 'delete',
 //             component: GridDeleteButton,
-//             createUrl: (uuid) => {
+//             createUrl: (uuid: string) => {
 //                 return `/category/delete/${uuid}`;
 //             }
 //         }
 //     ]
 // }
-//
-// export default function CategoryIndex() {
-//     return (
-//         <>
-//             <h1>Categories</h1>
-//             <Link to="/category/create" className={style['btn-add']}>Add</Link>
-//             <Grid
-//                 requestEndpoint={config.requestEndpoint}
-//                 fields={config.fields}
-//                 options={config.options}
-//                 buttons={config.buttons}
-//             />
-//         </>
-//     );
-// }
+
+export default function CategoryIndex() {
+    return (
+        <div className={style.section}>
+            <div className={style.inner}>
+                <h1 className={style.title}>Categories</h1>
+                <LinkButton path="/category/create" text="Add"/>
+            </div>
+        </div>
+    );
+}

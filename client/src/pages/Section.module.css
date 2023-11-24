@@ -9,6 +9,10 @@
     padding: 30px;
 }
 
+.flex {
+    display: flex;
+}
+
 .title {
     font-size: 24px;
     color: #0C1E5B;

@@ -1,4 +1,4 @@
-import {Validator} from "../../../types/validator";
+import {Validator} from "../../../../types/validator";
 
 export default class PositiveNumberValidator implements Validator{
     validate(value: string): string | null {

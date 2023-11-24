@@ -9,8 +9,8 @@ import costRouter from "./routers/cost-router";
 import categoryRouter  from './routers/category-router';
 import balanceRouter from "./routers/balance-router";
 
-app.use('/costs', costRouter);
-app.use('/categories', categoryRouter);
+app.use('/cost', costRouter);
+app.use('/category', categoryRouter);
 app.use('/balance', balanceRouter);
 
 const defaultDB = new MongoDB('Default');

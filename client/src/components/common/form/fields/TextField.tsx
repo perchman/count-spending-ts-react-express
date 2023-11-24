@@ -3,20 +3,21 @@ import {Field} from "react-final-form";
 
 import style from "./Field.module.css";
 
-interface DateField {
+interface TextField {
     name: string;
+    placeholder: string;
     value?: string;
 }
 
-export default function DateField({name, value}: DateField) {
+export default function TextField({name, placeholder, value}: TextField) {
     return (
         <Field
             name={name}
             // defaultValue={value} ?
             render={({ input, meta }) => (
                 <div>
-                    <input type="date" className={style.field} {...input}/>
-                    {meta.touched && meta.error && <span>{meta.error}</span>}
+                    <input type="text" className={style.field} {...input} placeholder={placeholder}/>
+                    {meta.touched && meta.submitError && <span className={style.error}>{meta.submitError}</span>}
                 </div>
             )}
         />

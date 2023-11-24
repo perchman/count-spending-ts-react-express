@@ -1,11 +1,11 @@
 import React from "react";
 
-import LinkButton from "../../components/buttons/add/LinkButton";
+import LinkButton from "../../components/common/buttons/add/LinkButton";
 
-import TextField from "../../components/form/fields/TextField";
-import NumberField from "../../components/form/fields/NumberField";
-import DateField from "../../components/form/fields/DateField";
-import DropdownField from "../../components/form/fields/DropdownField";
+import TextField from "../../components/common/form/fields/TextField";
+import NumberField from "../../components/common/form/fields/NumberField";
+import DateField from "../../components/common/form/fields/DateField";
+import DropdownField from "../../components/common/form/fields/DropdownField";
 
 import style from "../Section.module.css";
 

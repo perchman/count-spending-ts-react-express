@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from "react";
 import {Cost} from "../../types/entities";
 
-import Form from "./Form";
-import DateField from "./fields/DateField";
-import DropdownField from "./fields/DropdownField";
-import NumberField from "./fields/NumberField";
-import TextField from "./fields/TextField";
+import Form from "../common/form/Form";
+import DateField from "../common/form/fields/DateField";
+import DropdownField from "../common/form/fields/DropdownField";
+import NumberField from "../common/form/fields/NumberField";
+import TextField from "../common/form/fields/TextField";
 
 interface CostForm {
     cost: Cost;
-    onSubmit: (data: any) => void;
+    handlerSubmit: (data: any) => void;
 }
 
-export default function CostForm({cost, onSubmit}: CostForm) {
+export default function CostForm({cost, handlerSubmit}: CostForm) {
     const [formData, setFormData] = useState<Cost>(cost);
 
     useEffect(() => {
@@ -79,6 +79,6 @@ export default function CostForm({cost, onSubmit}: CostForm) {
     };
 
     return (
-        <Form<Cost> id="cost-form" fields={fields} handelSubmit={onSubmit}/>
+        <Form<Cost> id="cost-form" fields={fields} handlerSubmit={handlerSubmit}/>
     );
 }

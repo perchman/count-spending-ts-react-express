@@ -25,5 +25,5 @@ export interface FormWrapper {
     fields: {
         [key: string]: Field
     };
-    handelSubmit: (data: any) => void
+    handlerSubmit: (data: any) => void
 }

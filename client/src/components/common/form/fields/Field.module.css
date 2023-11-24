@@ -15,3 +15,10 @@
 .field:focus {
     border-color: #A4D8F7;
 }
+
+.error {
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff504d;
+}

@@ -3,6 +3,7 @@
 }
 
 .btn {
+    margin-right: 10px;
     padding: 6px 12px;
     color: #0C1E5B;
     font-size: 16px;
@@ -14,5 +15,5 @@
 }
 
 .btn:hover {
-    opacity: .7;
+    background-color: #75caf5;
 }

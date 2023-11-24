@@ -3,21 +3,21 @@ import {Field} from "react-final-form";
 
 import style from "./Field.module.css";
 
-interface TextField {
+interface NumberField {
     name: string;
     placeholder: string;
     value?: string;
 }
 
-export default function TextField({name, placeholder, value}: TextField) {
+export default function NumberField({name, placeholder, value}: NumberField) {
     return (
         <Field
             name={name}
             // defaultValue={value} ?
             render={({ input, meta }) => (
                 <div>
-                    <input type="text" className={style.field} {...input} placeholder={placeholder}/>
-                    {meta.touched && meta.error && <span>{meta.error}</span>}
+                    <input type="number" className={style.field} {...input} placeholder={placeholder}/>
+                    {meta.touched && meta.submitError && <span className={style.error}>{meta.submitError}</span>}
                 </div>
             )}
         />

@@ -25,14 +25,14 @@ export default function DropdownField({name, selected, disabledOption, getData}:
     return (
         <Field
             name={name}
-            // defaultValue={selectedOption} ?
             render={({ input, meta }) => (
                 <div>
-                    <select defaultValue={selected} className={style.field}>
+                    <select {...input} className={style.field}>
                         <option disabled hidden value='selected'>{disabledOption}</option>
-                        <option>gg</option>
-                        <option>hh</option>
+                        <option value="gg">gg</option>
+                        <option value="hh">hh</option>
                     </select>
+                    {meta.touched && meta.submitError && <span className={style.error}>{meta.submitError}</span>}
                 </div>
             )}
         />

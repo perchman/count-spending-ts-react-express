@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {NavigateFunction, useNavigate} from "react-router-dom";
 
-import CostForm from "../../components/form/CostForm";
+import CostForm from "../../components/cost/CostForm";
+
 import style from "../Section.module.css";
-import LinkButton from "../../components/buttons/add/LinkButton";
 
 interface FormData {
     date: string;
@@ -15,7 +15,7 @@ interface FormData {
 export default function CostCreate() {
     const navigate: NavigateFunction = useNavigate();
 
-    const handelSubmit = (data: FormData): void => {
+    const handlerSubmit = (data: FormData): void => {
         fetch('http://localhost:5000/costs', {
             method: 'POST',
             headers: {
@@ -52,7 +52,7 @@ export default function CostCreate() {
                         price: '',
                         description: ''
                     }}
-                    onSubmit={handelSubmit}
+                    handlerSubmit={handlerSubmit}
                 />
             </div>
         </div>

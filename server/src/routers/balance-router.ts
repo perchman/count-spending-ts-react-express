@@ -6,6 +6,6 @@ const router = Router();
 
 router.get('/', controller.getBalance);
 router.put('/', controller.replenish);
-router.get('/history/:page/:sort/:size');
+router.get('/history/page=:page/sort=:sort/page_size=:size');
 
 export default router;

@@ -8,13 +8,13 @@ import CostCreate from "./pages/costs/CostCreate";
 // import CostUpdate from "./view/cost/CostUpdate.jsx";
 // import CostDelete from "./view/cost/CostDelete.jsx";
 //
-// import CategoryIndex from "./view/category/CategoryIndex.jsx";
-// import CategoryCreate from "./view/category/CategoryCreate.jsx";
+import CategoryIndex from "./pages/categories/CategoryIndex";
+import CategoryCreate from "./pages/categories/CategoryCreate";
 // import CategoryUpdate from "./view/category/CategoryUpdate.jsx";
 // import CategoryDelete from "./view/category/CategoryDelete.jsx";
 //
-// import BalanceIndex from "./view/balance/BalanceIndex.jsx";
-// import BalanceReplenish from "./view/balance/BalanceReplenish.jsx";
+import BalanceIndex from "./pages/balance/BalanceIndex";
+import BalanceReplenish from "./pages/balance/BalanceReplinish";
 // import BalanceHistory from "./view/balance/BalanceHistory.jsx";
 // import HistoryBalanceChangeDelete from "./view/balance/HistoryBalanceChangeDelete.jsx";
 //
@@ -30,13 +30,13 @@ export default function App() {
                 {/*    <Route path="cost/update/:uuid" element={ <CostUpdate /> }/>*/}
                 {/*    <Route path="cost/delete/:uuid" element={ <CostDelete />}/>*/}
 
-                {/*    <Route path="category/index" element={ <CategoryIndex /> }/>*/}
-                {/*    <Route path="category/create" element={ <CategoryCreate /> }/>*/}
+                    <Route path="category/index" element={ <CategoryIndex /> }/>
+                    <Route path="category/create" element={ <CategoryCreate /> }/>
                 {/*    <Route path="category/update/:uuid" element={ <CategoryUpdate /> }/>*/}
                 {/*    <Route path="category/delete/:uuid" element={ <CategoryDelete />}/>*/}
 
-                {/*    <Route path="balance/index" element={ <BalanceIndex /> }/>*/}
-                {/*    <Route path="balance/replenish" element={ <BalanceReplenish /> }/>*/}
+                    <Route path="balance/index" element={ <BalanceIndex /> }/>
+                    <Route path="balance/replenish" element={ <BalanceReplenish /> }/>
                 {/*    <Route path="balance/history" element={ <BalanceHistory /> }/>*/}
                 {/*    <Route path="balance/history/delete/:uuid" element={ <HistoryBalanceChangeDelete /> }/>*/}
                 </Route>

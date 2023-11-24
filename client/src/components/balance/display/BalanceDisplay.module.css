@@ -1,0 +1,33 @@
+.display {
+    width: 160px;
+    margin-bottom: 20px;
+    border: 2px solid #EDF4FB;
+    border-radius: 10px;
+}
+
+.inner {
+    padding: 10px;
+    display: flex;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    padding: 12px;
+    background-color: #EDF4FB;
+    border-radius: 10px;
+    color: #0C1E5B;
+}
+
+.content {
+    margin-left: 8px;
+}
+
+.name {
+    font-size: 12px;
+}
+
+.value {
+    font-weight: bold;
+    color: #0C1E5B;
+}

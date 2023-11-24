@@ -4,11 +4,11 @@ const controller = require('../controllers/cost-controller');
 
 const router = Router();
 
-router.get('/:uuid', controller.getCostByUuid);
-router.get('/:page/:sort/:size', controller.getPartCosts);
+router.get('/uuid=:uuid', controller.getCostByUuid);
+router.get('/page=:page/sort=:sort/page_size=:size', controller.getPartCosts);
 router.post('/', controller.createCost);
-router.put('/:uuid', controller.updateCost);
-router.delete('/:uuid', controller.deleteCost);
+router.put('/uuid=:uuid', controller.updateCost);
+router.delete('/uuid=:uuid', controller.deleteCost);
 
 export default router;
 

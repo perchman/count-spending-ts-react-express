@@ -2,7 +2,7 @@ import RequiredValidator from "./RequiredValidator";
 import PositiveNumberValidator from "./PositiveNumberValidator";
 import MaxLengthValidator from "./MaxLengthValidator";
 
-import {Validator} from "../../../types/validator";
+import {Validator} from "../../../../types/validator";
 
 export default class ValidatorFactory {
     static factory(type: string): Validator{
