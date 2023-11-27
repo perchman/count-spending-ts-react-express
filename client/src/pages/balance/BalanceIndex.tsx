@@ -6,7 +6,7 @@ import style from "../Section.module.css";
 import BalanceDisplay from "../../components/balance/display/BalanceDisplay";
 
 export default function BalanceIndex() {
-    const [balance, setBalance] = useState();
+    const [balance, setBalance] = useState<string | null>(null);
 
     useEffect(() => {
         fetch('http://localhost:5000/balance')
@@ -17,7 +17,7 @@ export default function BalanceIndex() {
             })
             .then((data) => {
                 if (data) {
-                    setBalance(data);
+                    setBalance(data.balance);
                 }
             })
             .catch(err => console.log(err));
@@ -27,7 +27,7 @@ export default function BalanceIndex() {
         <div className={style.section}>
             <div className={style.inner}>
                 <h1 className={style.title}>Balance</h1>
-                <BalanceDisplay balance={''}/>
+                <BalanceDisplay balance={balance}/>
                 <div className={style.flex}>
                     <LinkButton path="/balance/replenish" text="Replenish"/>
                     <LinkButton path="/balance/history" text="History"/>

@@ -10,7 +10,7 @@ export default class BalanceMongoDB {
     }
 
     static getDatabase(): Db {
-        const manager: MongoDBInterface = ServiceLocator.get((this.constructor as typeof BalanceMongoDB).getDatabaseName());
+        const manager: MongoDBInterface = ServiceLocator.get(this.getDatabaseName());
 
         if (!manager.db) {
             throw new Error('Database is not available');
@@ -20,7 +20,7 @@ export default class BalanceMongoDB {
     }
 
     static async getValue(): Promise<number> {
-        const db: Db = (this.constructor as typeof BalanceMongoDB).getDatabase();
+        const db: Db = this.getDatabase();
         const collection: Collection<BalanceItem> = db.collection('balance');
         const obj: WithId<BalanceItem> | null = await collection.findOne({ key: 'balance' });
 
@@ -28,7 +28,7 @@ export default class BalanceMongoDB {
     }
 
     static async saveValue(value: number): Promise<void> {
-        const db: Db = (this.constructor as typeof BalanceMongoDB).getDatabase();;
+        const db: Db = this.getDatabase();
         const collection: Collection<BalanceItem> = db.collection('balance');
         const result: WithId<BalanceItem> | null = await collection.findOneAndUpdate(
             { key: 'balance' },

@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from "react";
+import {CategoryDataForm} from "../../types/entities";
 
 import TextField from "../common/form/fields/TextField";
 import FormWrapper from "../common/form/Form";
 
 import style from "../common/form/Form.module.css";
-import {Category} from "../../types/entities";
 
 interface CategoryForm {
-    category: Category;
-    handlerSubmit: (data: any) => void;
+    category: CategoryDataForm;
+    handlerSubmit: (data: CategoryDataForm) => void;
 }
 
 export default function CategoryForm({category, handlerSubmit}: CategoryForm) {
-    const [formData, setFormData] = useState<Category>(category);
+    const [formData, setFormData] = useState<CategoryDataForm>(category);
 
     useEffect(() => {
         setFormData({
@@ -35,6 +35,6 @@ export default function CategoryForm({category, handlerSubmit}: CategoryForm) {
 
 
     return (
-        <FormWrapper id="category-form" fields={fields} handlerSubmit={handlerSubmit}/>
+        <FormWrapper<CategoryDataForm> id="category-form" fields={fields} handlerSubmit={handlerSubmit}/>
     );
 }

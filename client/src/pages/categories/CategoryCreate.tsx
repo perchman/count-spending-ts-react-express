@@ -1,18 +1,15 @@
 import React from "react";
 import {NavigateFunction, useNavigate} from "react-router-dom";
+import {CategoryDataForm} from "../../types/entities";
 
 import CategoryForm from "../../components/category/CategoryForm";
 
 import style from "../Section.module.css";
 
-interface FormData {
-    name: string;
-}
-
 export default function CategoryCreate() {
     const navigate: NavigateFunction = useNavigate();
 
-    const handlerSubmit = async (data: FormData) => {
+    const handlerSubmit = async (data: CategoryDataForm): Promise<void> => {
         fetch('http://localhost:5000/category', {
             method: 'POST',
             headers: {

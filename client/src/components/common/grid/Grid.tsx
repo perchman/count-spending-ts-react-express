@@ -1,27 +1,13 @@
 import React, {useEffect, useState} from "react";
 
-// @todo ИСПРАВИТЬ BUTTONS type и FIELDS value any, исправить sort/direction: string на asc|desc
-interface Grid {
-    requestEndpoint: string;
-    fields: Record<string, {
-        text: string;
-        sort: boolean;
-        value: (item: any) => string | number;
-    }>;
-    options: {
-        sort: {
-            default: { key: string; direction: string };
-        };
-        pageSize: number;
-    };
-    buttons: {
-        key: string;
-        component: React.ComponentType<any>;
-        createUrl: (uuid: string) => string;
-    }[];
-}
+import GridHeader from "./GridHeader";
+import GridBody from "./GridBody";
 
-export default function Grid<T>({requestEndpoint, fields, options, buttons}: Grid) {
+import {Grid} from '../../../types/grid';
+
+import style from "./Grid.module.css";
+
+export default function Grid<T extends { uuid: string }>({requestEndpoint, fields, options, buttons}: Grid<T>) {
     const [sort, setSort] = useState(options.sort.default);
     const [pageNum, setPageNum] = useState(1);
 
@@ -33,9 +19,9 @@ export default function Grid<T>({requestEndpoint, fields, options, buttons}: Gri
     useEffect(() => {
         fetch(
             requestEndpoint +
-            `?sort=${sort.key}_${sort.direction}` +
-            `&page=${pageNum}` +
-            `&size=${options.pageSize}`
+            `/page=${pageNum}` +
+            `/sort=${sort.key}_${sort.direction}` +
+            `/page_size=${options.pageSize}`
         )
             .then((res) => {
                 if (res.status === 200) {
@@ -52,14 +38,14 @@ export default function Grid<T>({requestEndpoint, fields, options, buttons}: Gri
 
     return (
         <>
-            {/*<table className={style.table}>*/}
-            {/*    <GridHeader fields={fields} sort={sort} setSort={setSort} />*/}
-            {/*    <GridBody*/}
-            {/*        data={data.items}*/}
-            {/*        fields={fields}*/}
-            {/*        buttons={buttons}*/}
-            {/*    />*/}
-            {/*</table>*/}
+            <table className={style.grid}>
+                <GridHeader<T> fields={fields} sort={sort} setSort={setSort} />
+                <GridBody<T>
+                    data={data.items}
+                    fields={fields}
+                    buttons={buttons}
+                />
+            </table>
             {/*<Pagination*/}
             {/*    data={data}*/}
             {/*    pageNum={pageNum}*/}

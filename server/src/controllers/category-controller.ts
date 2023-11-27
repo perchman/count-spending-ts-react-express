@@ -17,9 +17,10 @@ const getPartCategories = async (req: Request, res: Response): Promise<void> => 
 }
 
 const createCategory = async (req: Request, res: Response): Promise<void>  => {
-    const category: Category = await Category.create(req.body.name);
+    console.log(req.body);
+    // const category: Category = await Category.create(req.body.name);
 
-    res.send(category);
+    // res.send(category);
 }
 
 const updateCategory = async (req: Request, res: Response): Promise<void> => {

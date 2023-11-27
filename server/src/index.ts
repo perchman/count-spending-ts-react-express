@@ -1,6 +1,7 @@
 import express from 'express';
 import MongoDB from "./frameworks/databases/MongoDB";
 import ServiceLocator from "./ServiceLocator";
+import cors from "./middlewares/cors";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -8,6 +9,9 @@ const PORT = process.env.PORT || 5000;
 import costRouter from "./routers/cost-router";
 import categoryRouter  from './routers/category-router';
 import balanceRouter from "./routers/balance-router";
+
+app.use(cors);
+app.use(express.json());
 
 app.use('/cost', costRouter);
 app.use('/category', categoryRouter);

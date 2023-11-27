@@ -3,7 +3,7 @@ import Balance from "../models/balance/Balance";
 import HistoryBalanceChange from "../models/balance/HistoryBalanceChange";
 
 const getBalance = async (req: Request, res: Response): Promise<void> => {
-    res.send(await Balance.getValue());
+    res.send({ balance: await Balance.getValue() });
 }
 
 const replenish = async (req: Request, res: Response): Promise<void> => {
@@ -13,7 +13,7 @@ const replenish = async (req: Request, res: Response): Promise<void> => {
         'replenishment'
     )
 
-    res.send(await Balance.getValue());
+    res.send({ balance: await Balance.getValue() });
 }
 
 const getHistory = async (req: Request, res: Response): Promise<void> => {
