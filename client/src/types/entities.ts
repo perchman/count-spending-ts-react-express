@@ -11,7 +11,10 @@ export interface CategoryDataForm {
 export interface Cost {
     uuid: string;
     date: string;
-    category: string;
+    category: {
+        uuid: string,
+        name: string
+    }
     price: string;
     description: string;
 }

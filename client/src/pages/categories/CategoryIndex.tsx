@@ -53,7 +53,8 @@ export default function CategoryIndex() {
                     requestEndpoint={config.requestEndpoint}
                     fields={config.fields}
                     options={config.options}
-                    buttons={config.buttons} />
+                    buttons={config.buttons}
+                />
             </div>
         </div>
     );

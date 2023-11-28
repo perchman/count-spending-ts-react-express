@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 
 import GridHeader from "./GridHeader";
 import GridBody from "./GridBody";
+import Pagination from "../pagination/Pagination";
 
 import {Grid} from '../../../types/grid';
 
@@ -46,13 +47,12 @@ export default function Grid<T extends { uuid: string }>({requestEndpoint, field
                     buttons={buttons}
                 />
             </table>
-            {/*<Pagination*/}
-            {/*    data={data}*/}
-            {/*    pageNum={pageNum}*/}
-            {/*    pageSize={options.pageSize}*/}
-            {/*    totalCount={data.totalCount}*/}
-            {/*    setPageNum={setPageNum}*/}
-            {/*/>*/}
+            <Pagination<T>
+                data={data}
+                pageNum={pageNum}
+                pageSize={options.pageSize}
+                setPageNum={setPageNum}
+            />
         </>
     );
 }

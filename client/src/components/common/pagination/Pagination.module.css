@@ -1,0 +1,38 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.info {
+    font-size: 14px;
+    color: #0C1E5B;
+}
+
+.btn-prev {
+    border-radius: 10px 0 0 10px;
+}
+
+.btn-next {
+    border-radius: 0 10px 10px 0;
+}
+
+.btn {
+    margin: 0 -1px;
+    padding: 5px 10px;
+    background-color: #A4D8F7;
+    font-weight: bold;
+    color: #0C1E5B;
+    border: 1px solid #75caf5;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.btn:hover {
+    background-color: #75caf5;
+}
+
+.active {
+    background-color: #75caf5;
+}

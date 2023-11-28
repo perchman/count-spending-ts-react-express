@@ -9,3 +9,23 @@ export interface CostItem {
     price: number,
     description: string
 }
+
+export interface CostItemWithId {
+    _id: ObjectId
+    uuid: string,
+    date: number,
+    categoryUuid: string,
+    price: number,
+    description: string
+}
+
+export interface CostItemToSend {
+    uuid: string,
+    date: number,
+    category: {
+        uuid: string,
+        name: string
+    }
+    price: number,
+    description: string
+}

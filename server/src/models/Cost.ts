@@ -1,11 +1,12 @@
-import { CostItem } from "../frameworks/types/cost-interfaces";
+import { CostItem, CostItemWithId, CostItemToSend } from "../frameworks/types/cost-interfaces";
 import { MongoDBInterface } from "../frameworks/types/mongoDB-interface";
 
 import Category from "./Category";
 import Balance from "./balance/Balance";
 import MongoDBActiveRecordModel from "../MongoDBActiveRecordModel";
 
-export default class Cost extends MongoDBActiveRecordModel {
+export default // @ts-ignore
+class Cost extends MongoDBActiveRecordModel {
     date: Date
     category: Category
     price: number
@@ -62,6 +63,34 @@ export default class Cost extends MongoDBActiveRecordModel {
         await cost.save();
 
         return cost;
+    }
+
+    static async getPart(pageNum: number, orderBy: string, pageSize: number): Promise<CostItemToSend[]> {
+        const costs: CostItemWithId[] = await super.getPart<CostItemWithId>(pageNum, orderBy, pageSize);
+
+        let result: CostItemToSend[] = [];
+
+        for (let cost of costs) {
+            const category: Category = await Category.getByUuid(cost.categoryUuid);
+
+            if (!category.uuid) {
+                throw new Error("The category uuid is null. Method cannot be used without uuid");
+            }
+
+            result.push({
+                uuid: cost.uuid,
+                date: cost.date,
+                category: {
+                    uuid: category.uuid,
+                    name: category.name,
+                },
+                price: cost.price,
+                description: cost.description
+            })
+        }
+
+        return result;
+
     }
 
     static async existsCostsHasCategory(categoryUuid : string) : Promise<boolean> {
