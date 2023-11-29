@@ -11,26 +11,37 @@ interface DropdownField {
     getData: () => any;
 }
 
+type Data = Array<{ uuid: string; [key: string]: any }>;
+
 export default function DropdownField({name, selected, disabledOption, getData}: DropdownField) {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<Data>([]);
     const [selectedOption, setSelectedOption] = useState(selected);
 
-    // useEffect(() => {
-    //     getData().then((data: any) => {
-    //         setData(data);
-    //         setSelectedOption(selected);
-    //     });
-    // }, []);
+    useEffect(() => {
+        getData().then((data: Data) => {
+            setData(data);
+            setSelectedOption(selected);
+        });
+    }, []);
 
     return (
         <Field
             name={name}
+            initialValue={selected}
             render={({ input, meta }) => (
                 <div>
                     <select {...input} className={style.field}>
                         <option disabled hidden value='selected'>{disabledOption}</option>
-                        <option value="gg">gg</option>
-                        <option value="hh">hh</option>
+                        {
+                            data.map((item) => (
+                                <option
+                                    key={item.uuid}
+                                    value={item.uuid}
+                                >
+                                    {item.name}
+                                </option>
+                            ))
+                        }
                     </select>
                     {meta.touched && meta.submitError && <span className={style.error}>{meta.submitError}</span>}
                 </div>
@@ -39,11 +50,3 @@ export default function DropdownField({name, selected, disabledOption, getData}:
     );
 }
 
-// data.map((item) => (
-//     <option
-//         key={item.uuid}
-//         value={item.uuid}
-//     >
-//         {item.name}
-//     </option>
-// ))

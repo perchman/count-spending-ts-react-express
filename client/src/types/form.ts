@@ -20,10 +20,10 @@ export interface Field {
     params: Input | Select;
 }
 
-export interface FormWrapper {
+export interface FormWrapper<T> {
     id: string;
     fields: {
         [key: string]: Field
     };
-    handlerSubmit: (data: any) => void
+    handlerSubmit: (data: T, setResponseErr: (err: string) => void) => void;
 }

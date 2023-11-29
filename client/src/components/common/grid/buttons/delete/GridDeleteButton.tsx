@@ -4,7 +4,7 @@ import {AiFillDelete} from "react-icons/ai";
 
 import style from "./GridDeleteButton.module.css";
 
-export default function GridDeleteButton(url: string) {
+export default function GridDeleteButton({ url }: { url:string }) {
     return (
         <Link
             to={url}

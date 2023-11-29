@@ -6,10 +6,11 @@ import DateField from "../common/form/fields/DateField";
 import DropdownField from "../common/form/fields/DropdownField";
 import NumberField from "../common/form/fields/NumberField";
 import TextField from "../common/form/fields/TextField";
+import FormWrapper from "../common/form/Form";
 
 interface CostForm {
     cost: CostDataForm;
-    handlerSubmit: (data: CostDataForm) => void;
+    handlerSubmit: (data: CostDataForm, setResponseErr: (err: string) => void) => void;
 }
 
 export default function CostForm({cost, handlerSubmit}: CostForm) {
@@ -17,7 +18,7 @@ export default function CostForm({cost, handlerSubmit}: CostForm) {
 
     useEffect(() => {
             setFormData({
-                date: cost.date,
+                date: cost.date ? new Date(cost.date).toISOString().split('T')[0] : cost.date,
                 category: cost.category,
                 price: cost.price,
                 description: cost.description
@@ -25,7 +26,7 @@ export default function CostForm({cost, handlerSubmit}: CostForm) {
     }, [cost]);
 
     const getDataForDropdown = async () => {
-        return fetch('http://localhost:5000/categories?sort=name_asc')
+        return fetch('http://localhost:5000/category/sort=name_asc')
             .then((res) => {
                 if (res.ok) {
                     return res.json();
@@ -79,6 +80,6 @@ export default function CostForm({cost, handlerSubmit}: CostForm) {
     };
 
     return (
-        <Form<CostDataForm> id="cost-form" fields={fields} handlerSubmit={handlerSubmit}/>
+        <FormWrapper<CostDataForm> id="cost-form" fields={fields} handlerSubmit={handlerSubmit}/>
     );
 }

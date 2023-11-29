@@ -12,7 +12,7 @@ export default function DateField({name, value}: DateField) {
     return (
         <Field
             name={name}
-            // defaultValue={value} ?
+            initialValue={value}
             render={({ input, meta }) => (
                 <div>
                     <input type="date" className={style.field} {...input}/>

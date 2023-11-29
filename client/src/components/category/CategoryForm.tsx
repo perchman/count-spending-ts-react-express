@@ -13,7 +13,7 @@ interface CategoryForm {
 
 export default function CategoryForm({category, handlerSubmit}: CategoryForm) {
     const [formData, setFormData] = useState<CategoryDataForm>(category);
-
+    console.log(category);
     useEffect(() => {
         setFormData({
             name: category.name

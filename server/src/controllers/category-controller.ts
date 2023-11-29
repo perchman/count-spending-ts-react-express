@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import e, { Request, Response } from 'express';
 import Category from "../models/Category";
 
 const getCategoryByUuid = async (req: Request, res: Response): Promise<void> => {
@@ -14,6 +14,10 @@ const getPartCategories = async (req: Request, res: Response): Promise<void> => 
         ),
         totalCount: await Category.getCount()
     })
+}
+
+const getAllSortedCategories = async (req: Request, res: Response): Promise<void> => {
+    res.send(await Category.getAllSorted(req.params.sort));
 }
 
 const createCategory = async (req: Request, res: Response): Promise<void>  => {
@@ -37,13 +41,14 @@ const deleteCategory = async (req: Request, res: Response): Promise<void> => {
 
         res.send(category);
     } catch (err: any) {
-        res.status(500).send(err.message);
+        res.status(500).send({ err: err.message });
     }
 }
 
 module.exports = {
     getCategoryByUuid: getCategoryByUuid,
     getPartCategories: getPartCategories,
+    getAllSortedCategories: getAllSortedCategories,
     createCategory: createCategory,
     updateCategory: updateCategory,
     deleteCategory: deleteCategory

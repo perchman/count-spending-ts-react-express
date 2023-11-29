@@ -4,7 +4,7 @@ import {FaPen} from "react-icons/fa";
 
 import style from "./GridUpdateButton.module.css";
 
-export default function GridUpdateButton(url: string) {
+export default function GridUpdateButton({ url }: { url:string }) {
     return (
         <Link
             to={url}

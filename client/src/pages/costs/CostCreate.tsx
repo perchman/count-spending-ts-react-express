@@ -9,8 +9,8 @@ import style from "../Section.module.css";
 export default function CostCreate() {
     const navigate: NavigateFunction = useNavigate();
 
-    const handlerSubmit = (data: CostDataForm): void => {
-        fetch('http://localhost:5000/costs', {
+    const handlerSubmit = (data: CostDataForm, setResponseErr: (err: string) => void): void => {
+        fetch('http://localhost:5000/cost', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

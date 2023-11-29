@@ -10,7 +10,7 @@ import ValidatorFactory from "./validators/ValidatorFactory";
 
 import style from "./Form.module.css";
 
-export default function FormWrapper<T>({id, fields, handlerSubmit}: FormWrapper) {
+export default function FormWrapper<T>({id, fields, handlerSubmit}: FormWrapper<T>) {
     const [responseError, setResponseError] = useState<string | null>(null);
 
     const onSubmit = (values: T) => {
@@ -34,7 +34,7 @@ export default function FormWrapper<T>({id, fields, handlerSubmit}: FormWrapper)
         if (Object.keys(errors).length > 0) {
             return errors;
         } else {
-            handlerSubmit(values);
+            handlerSubmit(values, setResponseError);
         }
     }
 

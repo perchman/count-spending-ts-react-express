@@ -30,7 +30,7 @@ const createCost = async (req: Request, res: Response): Promise<void> => {
 
         res.send(cost);
     } catch (err: any) {
-        res.status(500).send(err.message);
+        res.status(500).send({ err: err.message });
     }
 }
 
@@ -47,7 +47,7 @@ const updateCost = async (req: Request, res: Response): Promise<void> => {
 
         res.send(cost);
     } catch (err: any) {
-        res.status(500).send(err.message);
+        res.status(500).send({ err: err.message });
     }
 }
 
