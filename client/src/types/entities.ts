@@ -26,3 +26,15 @@ export interface CostDataForm {
     price: string;
     description: string;
 }
+
+export interface HistoryBalanceChange {
+    uuid: string;
+    date: string;
+    type: string;
+    amount: string;
+}
+
+export interface HistoryBalanceChangeFormData {
+    date: string;
+    amount: string;
+}

@@ -14,7 +14,6 @@ export default function BalanceReplenish() {
     const navigate: NavigateFunction = useNavigate();
 
     const handelSubmit =  async (data: FormData): Promise<void> => {
-        console.log(data);
         fetch('http://localhost:5000/balance', {
             method: 'POST',
             headers: {

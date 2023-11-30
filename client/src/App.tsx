@@ -15,7 +15,7 @@ import CategoryDelete from "./pages/categories/CategoryDelete";
 //
 import BalanceIndex from "./pages/balance/BalanceIndex";
 import BalanceReplenish from "./pages/balance/BalanceReplinish";
-// import BalanceHistory from "./view/balance/BalanceHistory.jsx";
+import BalanceHistory from "./pages/balance/BalanceHistory";
 // import HistoryBalanceChangeDelete from "./view/balance/HistoryBalanceChangeDelete.jsx";
 //
 // import "./framework/components/style.css";
@@ -37,7 +37,7 @@ export default function App() {
 
                     <Route path="balance/index" element={ <BalanceIndex /> }/>
                     <Route path="balance/replenish" element={ <BalanceReplenish /> }/>
-                {/*    <Route path="balance/history" element={ <BalanceHistory /> }/>*/}
+                    <Route path="balance/history" element={ <BalanceHistory /> }/>
                 {/*    <Route path="balance/history/delete/:uuid" element={ <HistoryBalanceChangeDelete /> }/>*/}
                 </Route>
             </Routes>

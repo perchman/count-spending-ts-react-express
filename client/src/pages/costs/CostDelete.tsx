@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import style from "../Section.module.css";
-import Message from "../../components/common/message/Message";
 
-// import GoBackButton from "../../framework/components/buttons/goBackButton/GoBackButton.jsx";
+import Message from "../../components/common/message/Message";
+import GoBackButton from "../../components/common/buttons/goBack/GoBackButton";
+
+import style from "../Section.module.css";
 
 export default function CostDelete() {
     const {uuid} = useParams();
@@ -56,6 +57,7 @@ export default function CostDelete() {
                             <Message status={isSuccess.status} text={isSuccess.text} /> :
                             <div>Deleting...</div>
                     }
+                    <GoBackButton />
                 </div>
             </div>
         );

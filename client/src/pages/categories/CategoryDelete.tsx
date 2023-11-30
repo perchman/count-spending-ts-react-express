@@ -5,6 +5,7 @@ import {useParams} from "react-router-dom";
 
 import style from "../Section.module.css";
 import Message from "../../components/common/message/Message";
+import GoBackButton from "../../components/common/buttons/goBack/GoBackButton";
 
 export default function CategoryDelete() {
     const {uuid} = useParams();
@@ -50,6 +51,7 @@ export default function CategoryDelete() {
                         <Message status={isSuccess.status} text={isSuccess.text} /> :
                         <div>Deleting...</div>
                 }
+                <GoBackButton />
             </div>
         </div>
     );
