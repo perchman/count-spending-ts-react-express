@@ -1,12 +1,12 @@
-import { CostItem, CostItemWithId, CostItemToSend } from "../frameworks/types/cost-interfaces";
+import { CostItem, CostItemWithUuid, CostItemWithId, CostItemToSend } from "../frameworks/types/cost-interfaces";
 import { MongoDBInterface } from "../frameworks/types/mongoDB-interface";
 
 import Category from "./Category";
 import Balance from "./balance/Balance";
 import MongoDBActiveRecordModel from "../MongoDBActiveRecordModel";
+import {WithId} from "mongodb";
 
-export default // @ts-ignore
-class Cost extends MongoDBActiveRecordModel {
+export default class Cost extends MongoDBActiveRecordModel {
     date: Date
     category: Category
     price: number
@@ -65,10 +65,10 @@ class Cost extends MongoDBActiveRecordModel {
         return cost;
     }
 
-    static async getPart(pageNum: number, orderBy: string, pageSize: number): Promise<CostItemToSend[]> {
-        const costs: CostItemWithId[] = await super.getPart<CostItemWithId>(pageNum, orderBy, pageSize);
+    static async getPart(pageNum: number, orderBy: string, pageSize: number) {
+        const costs = await super.getPart(pageNum, orderBy, pageSize);
 
-        let result: CostItemToSend[] = [];
+        let result = [];
 
         for (let cost of costs) {
             const category: Category = await Category.getByUuid(cost.categoryUuid);
@@ -78,6 +78,7 @@ class Cost extends MongoDBActiveRecordModel {
             }
 
             result.push({
+                _id: cost._id,
                 uuid: cost.uuid,
                 date: cost.date,
                 category: {
@@ -90,7 +91,6 @@ class Cost extends MongoDBActiveRecordModel {
         }
 
         return result;
-
     }
 
     static async existsCostsHasCategory(categoryUuid : string) : Promise<boolean> {

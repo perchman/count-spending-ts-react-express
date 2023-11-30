@@ -10,8 +10,16 @@ export interface CostItem {
     description: string
 }
 
+export interface CostItemWithUuid {
+    uuid: string,
+    date: number,
+    categoryUuid: string,
+    price: number,
+    description: string
+}
+
 export interface CostItemWithId {
-    _id: ObjectId
+    _id: ObjectId,
     uuid: string,
     date: number,
     categoryUuid: string,
@@ -20,6 +28,7 @@ export interface CostItemWithId {
 }
 
 export interface CostItemToSend {
+    _id: ObjectId,
     uuid: string,
     date: number,
     category: {

@@ -63,11 +63,11 @@ export default class MongoDBActiveRecordModel {
             .toArray();
     }
 
-    static async getPart<T extends {_id: ObjectId}>(pageNum: number, orderBy: string, pageSize: number): Promise<WithId<T>[]> {
+    static async getPart(pageNum: number, orderBy: string, pageSize: number) {
         const [key, direction] : string[] = orderBy.split('_');
 
         const db: Db = this.getDatabase();
-        const collection: Collection<T> = db.collection(this.getEntityName());
+        const collection = db.collection(this.getEntityName());
 
         return await collection
             .find()
