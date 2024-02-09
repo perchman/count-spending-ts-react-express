@@ -9,7 +9,7 @@ import style from "../Section.module.css";
 export default function CostCreate() {
     const navigate: NavigateFunction = useNavigate();
 
-    const handlerSubmit = (data: CostDataForm, setResponseErr: (err: string) => void): void => {
+    const handlerSubmit = (data: CostDataForm, setResponseError: (err: string) => void): void => {
         fetch('http://localhost:5000/cost', {
             method: 'POST',
             headers: {
@@ -28,7 +28,7 @@ export default function CostCreate() {
             .then((data) => {
                 if (data) {
                     if (data.err) {
-                        // setResponseError(data.err);
+                        setResponseError(data.err);
                     }
                 }
             })

@@ -4,7 +4,7 @@ import ServiceLocator from "./ServiceLocator";
 import cors from "./middlewares/cors";
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 80;
 
 import costRouter from "./routers/cost-router";
 import categoryRouter  from './routers/category-router';
@@ -17,7 +17,8 @@ app.use('/cost', costRouter);
 app.use('/category', categoryRouter);
 app.use('/balance', balanceRouter);
 
-const defaultDB = new MongoDB('Default');
+const mongoUrl = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/';
+const defaultDB = new MongoDB('Default', mongoUrl);
 
 async function start() {
     try {

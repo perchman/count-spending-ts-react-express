@@ -42,7 +42,7 @@ export default function CategoryUpdate() {
                     navigate("/category/index");
                 }
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err));
     }
 
     return (
