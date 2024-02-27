@@ -1,0 +1,20 @@
+.btn {
+  margin-left: 6px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  background-color: #ffbdbc;
+  border-radius: 6px;
+  position: relative;
+
+  .icon {
+    color: #ff504d;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

@@ -4,8 +4,6 @@ import {CategoryDataForm} from "../../types/entities";
 import TextField from "../common/form/fields/TextField";
 import FormWrapper from "../common/form/Form";
 
-import style from "../common/form/Form.module.css";
-
 interface CategoryForm {
     category: CategoryDataForm;
     handlerSubmit: (data: CategoryDataForm) => void;
@@ -24,7 +22,6 @@ export default function CategoryForm({category, handlerSubmit}: CategoryForm) {
         name: {
             component: TextField,
             params: {
-                className: style.input,
                 name: 'name',
                 placeholder: 'Category name',
                 value: formData.name,

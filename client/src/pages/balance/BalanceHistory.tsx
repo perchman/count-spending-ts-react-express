@@ -1,14 +1,13 @@
 import React from "react";
-
-import Grid from "../../components/common/grid/Grid";
-
 import {HistoryBalanceChange} from "../../types/entities";
 
-import style from "../Section.module.css";
-import GoBackButton from "../../components/common/buttons/goBack/GoBackButton";
+import Grid from "../../components/common/grid/Grid";
+import GoBackButton from "../../components/common/buttons/GoBackButton";
+
+import style from "../Section.module.scss";
 
 const config = {
-    requestEndpoint: 'http://localhost:5000/balance/history',
+    requestEndpoint: 'http://localhost:8080/balance/history',
     fields: {
         date: {
             text: 'Date',

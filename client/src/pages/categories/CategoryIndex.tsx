@@ -4,12 +4,12 @@ import {Category} from "../../types/entities";
 import Grid from "../../components/common/grid/Grid";
 import GridDeleteButton from "../../components/common/grid/buttons/delete/GridDeleteButton";
 import GridUpdateButton from "../../components/common/grid/buttons/update/GridUpdateButton";
-import LinkButton from "../../components/common/buttons/add/LinkButton";
+import LinkButton from "../../components/common/buttons/LinkButton";
 
-import style from "../Section.module.css";
+import style from "../Section.module.scss";
 
 const config = {
-    requestEndpoint: 'http://localhost:5000/category',
+    requestEndpoint: 'http://localhost:8080/category',
     fields: {
         name: {
             text: 'Name',

@@ -4,13 +4,13 @@ import {CategoryDataForm} from "../../types/entities";
 
 import CategoryForm from "../../components/category/CategoryForm";
 
-import style from "../Section.module.css";
+import style from "../Section.module.scss";
 
 export default function CategoryCreate() {
     const navigate: NavigateFunction = useNavigate();
 
     const handlerSubmit = async (data: CategoryDataForm): Promise<void> => {
-        fetch('http://localhost:5000/category', {
+        fetch('http://localhost:8080/category', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

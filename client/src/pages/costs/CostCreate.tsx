@@ -4,13 +4,13 @@ import {CostDataForm} from "../../types/entities";
 
 import CostForm from "../../components/cost/CostForm";
 
-import style from "../Section.module.css";
+import style from "../Section.module.scss";
 
 export default function CostCreate() {
     const navigate: NavigateFunction = useNavigate();
 
     const handlerSubmit = (data: CostDataForm, setResponseError: (err: string) => void): void => {
-        fetch('http://localhost:5000/cost', {
+        fetch('http://localhost:8080/cost', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

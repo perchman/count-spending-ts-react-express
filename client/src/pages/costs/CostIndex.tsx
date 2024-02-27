@@ -1,16 +1,16 @@
 import React from "react";
 
-import LinkButton from "../../components/common/buttons/add/LinkButton";
+import LinkButton from "../../components/common/buttons/LinkButton";
 import GridUpdateButton from "../../components/common/grid/buttons/update/GridUpdateButton";
 import GridDeleteButton from "../../components/common/grid/buttons/delete/GridDeleteButton";
 import Grid from "../../components/common/grid/Grid";
 
 import {Cost} from "../../types/entities";
 
-import style from "../Section.module.css";
+import style from "../Section.module.scss";
 
 const config = {
-    requestEndpoint: 'http://localhost:5000/cost',
+    requestEndpoint: 'http://localhost:8080/cost',
     fields: {
         date: {
             text: 'Date',

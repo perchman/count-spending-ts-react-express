@@ -1,7 +1,7 @@
 import React from "react";
 import {Field} from "react-final-form";
 
-import style from "./Field.module.css";
+import style from "./Field.module.scss";
 
 interface DateField {
     name: string;

@@ -1,0 +1,32 @@
+.message {
+  width: 550px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+
+  .inner {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+
+    .icon {
+      display: block;
+      width: 42px;
+      height: 42px;
+      font-size: 42px;
+    }
+
+    .text {
+      margin-left: 10px;
+    }
+  }
+}
+
+.success {
+  background-color: #EBFFE8;
+  color: #3CC545;
+}
+
+.error {
+  background-color: #FFE7E7;
+  color: #FF6966;
+}

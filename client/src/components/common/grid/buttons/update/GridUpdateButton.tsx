@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import {FaPen} from "react-icons/fa";
 
-import style from "./GridUpdateButton.module.css";
+import style from "./GridUpdateButton.module.scss";
 
 export default function GridUpdateButton({ url }: { url:string }) {
     return (

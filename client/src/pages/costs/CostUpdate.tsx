@@ -5,7 +5,7 @@ import CostForm from "../../components/cost/CostForm";
 
 import {CostDataForm} from "../../types/entities";
 
-import style from "../Section.module.css";
+import style from "../Section.module.scss";
 
 export default function CostUpdate() {
     const {uuid} = useParams();
@@ -18,7 +18,7 @@ export default function CostUpdate() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/cost/uuid=${uuid}`)
+        fetch(`http://localhost:8080/cost/uuid=${uuid}`)
             .then((res) => {
                 if (res.ok) {
                     return res.json();
@@ -33,7 +33,7 @@ export default function CostUpdate() {
     }, []);
 
     const handlerSubmit = async (data: CostDataForm, setResponseError: (err: string) => void) => {
-        fetch(`http://localhost:5000/cost/uuid=${uuid}`, {
+        fetch(`http://localhost:8080/cost/uuid=${uuid}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

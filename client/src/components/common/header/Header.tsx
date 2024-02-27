@@ -3,7 +3,7 @@ import React from "react";
 import Logo from "./logo/Logo";
 import Navbar from "./navbar/Navbar";
 
-import style from "./Header.module.css";
+import style from "./Header.module.scss";
 
 export default function Header() {
     return (

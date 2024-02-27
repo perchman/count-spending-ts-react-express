@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from "react";
 
-import LinkButton from "../../components/common/buttons/add/LinkButton";
-
-import style from "../Section.module.css";
+import LinkButton from "../../components/common/buttons/LinkButton";
 import BalanceDisplay from "../../components/balance/display/BalanceDisplay";
+
+import style from "../Section.module.scss";
 
 export default function BalanceIndex() {
     const [balance, setBalance] = useState<string | null>(null);
 
     useEffect(() => {
-        fetch('http://localhost:5000/balance')
+        fetch('http://localhost:8080/balance')
             .then((res) => {
                 if (res.status === 200) {
                     return res.json();

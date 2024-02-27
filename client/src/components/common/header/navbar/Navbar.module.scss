@@ -1,0 +1,31 @@
+.ol {
+  display: flex;
+  list-style-type: none;
+
+  .item {
+    padding: 0 5px;
+
+
+    .link {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #0C1E5B;
+      border-radius: 10px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: #FFF;
+        background-color: #FF6966;
+      }
+    }
+
+    .active {
+      color: #FFF;
+      background-color: #FF6966;
+    }
+  }
+}

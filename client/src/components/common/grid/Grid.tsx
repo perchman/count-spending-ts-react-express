@@ -6,7 +6,7 @@ import Pagination from "../pagination/Pagination";
 
 import {Grid} from '../../../types/grid';
 
-import style from "./Grid.module.css";
+import style from "./Grid.module.scss";
 
 export default function Grid<T extends { uuid: string }>({requestEndpoint, fields, options, buttons}: Grid<T>) {
     const [sort, setSort] = useState(options.sort.default);

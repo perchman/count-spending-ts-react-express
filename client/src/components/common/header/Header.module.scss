@@ -1,0 +1,11 @@
+.inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #FFF;
+  border-radius: 0 0 24px 24px;
+
+  .item {
+    padding: 10px 20px;
+  }
+}

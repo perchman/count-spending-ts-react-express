@@ -1,6 +1,6 @@
 import React from "react";
 
-import style from "./SubmitButton.module.css";
+import style from "./SubmitButton.module.scss";
 
 export default function SubmitButton() {
     return (

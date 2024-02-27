@@ -5,7 +5,7 @@ import CategoryForm from "../../components/category/CategoryForm";
 
 import {CategoryDataForm} from "../../types/entities";
 
-import style from "../Section.module.css";
+import style from "../Section.module.scss";
 
 export default function CategoryUpdate() {
     const {uuid} = useParams();
@@ -15,7 +15,7 @@ export default function CategoryUpdate() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/category/uuid=${uuid}`)
+        fetch(`http://localhost:8080/category/uuid=${uuid}`)
             .then((res) => {
                 if (res.status === 200) {
                     return res.json();
@@ -30,7 +30,7 @@ export default function CategoryUpdate() {
     }, []);
 
     const handlerSubmit = (data: CategoryDataForm) => {
-        fetch(`http://localhost:5000/category/uuid=${uuid}`, {
+        fetch(`http://localhost:8080/category/uuid=${uuid}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

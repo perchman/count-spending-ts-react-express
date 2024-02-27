@@ -1,6 +1,6 @@
 import React from "react";
 
-import style from "./Logo.module.css";
+import style from "./Logo.module.scss";
 
 export default function Logo() {
     return (

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Field} from "react-final-form";
 
-import style from "./Field.module.css";
+import style from "./Field.module.scss";
 
 //@todo переписать getData: any, переписать item(возвожно функцию на джинерик)
 interface DropdownField {

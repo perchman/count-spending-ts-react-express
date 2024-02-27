@@ -8,7 +8,7 @@ import SubmitButton from "./button/SubmitButton";
 
 import ValidatorFactory from "./validators/ValidatorFactory";
 
-import style from "./Form.module.css";
+import style from "./Form.module.scss";
 
 export default function FormWrapper<T>({id, fields, handlerSubmit}: FormWrapper<T>) {
     const [responseError, setResponseError] = useState<string | null>(null);

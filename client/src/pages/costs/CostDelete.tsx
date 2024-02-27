@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 
 import Message from "../../components/common/message/Message";
-import GoBackButton from "../../components/common/buttons/goBack/GoBackButton";
+import GoBackButton from "../../components/common/buttons/GoBackButton";
 
-import style from "../Section.module.css";
+import style from "../Section.module.scss";
 
 export default function CostDelete() {
     const {uuid} = useParams();
@@ -15,7 +15,7 @@ export default function CostDelete() {
     });
 
     useEffect(() => {
-        fetch(`http://localhost:5000/cost/uuid=${uuid}`, {
+        fetch(`http://localhost:8080/cost/uuid=${uuid}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'

@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import {IoIosCheckmarkCircle} from "react-icons/io";
 import {MdError} from "react-icons/md";
 
-import style from "./Message.module.css";
+import style from "./Message.module.scss";
 
 interface Message {
     status: string;

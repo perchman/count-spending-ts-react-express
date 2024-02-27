@@ -3,7 +3,7 @@ import {NavigateFunction, useNavigate} from "react-router-dom";
 
 import BalanceForm from "../../components/balance/form/BalanceForm";
 
-import style from "../Section.module.css";
+import style from "../Section.module.scss";
 
 interface FormData {
     date: string;
@@ -14,7 +14,7 @@ export default function BalanceReplenish() {
     const navigate: NavigateFunction = useNavigate();
 
     const handelSubmit =  async (data: FormData): Promise<void> => {
-        fetch('http://localhost:5000/balance', {
+        fetch('http://localhost:8080/balance', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

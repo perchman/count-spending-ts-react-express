@@ -1,7 +1,7 @@
 import React from "react";
 import {GridBody} from "../../../types/grid";
 
-import style from "./Grid.module.css";
+import style from "./Grid.module.scss";
 
 export default function GridBody<T extends { uuid: string }>({data, fields, buttons}: GridBody<T>) {
     const rows = [];
@@ -21,7 +21,7 @@ export default function GridBody<T extends { uuid: string }>({data, fields, butt
         }
 
         rows.push(
-            <tr key={item.uuid}>
+            <tr key={item.uuid} className={style.row}>
                 {cells}
                 <td className={`${style['btn-cell']}`}>
                     {buttons.map((button) => {

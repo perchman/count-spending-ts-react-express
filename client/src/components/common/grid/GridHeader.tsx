@@ -2,7 +2,7 @@ import React from "react";
 
 import {GridHeader} from "../../../types/grid";
 
-import style from "./Grid.module.css";
+import style from "./Grid.module.scss";
 
 export default function GridHeader<T>({fields, sort, setSort}: GridHeader<T>) {
     const elems = [];

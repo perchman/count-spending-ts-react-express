@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 
-import style from "./Pagination.module.css";
+import style from "./Pagination.module.scss";
 
 interface Pagination<T> {
     data: {
@@ -78,7 +78,7 @@ export default function Pagination<T>({data, pageNum, pageSize, setPageNum}: Pag
             <div className={style.info}>
                 Showing <b>{params.start + 1}</b> to <b>{params.end}</b> of <b>{params.totalCount}</b> results
             </div>
-            <div className={style.buttons}>
+            <div>
                 <button className={`${style.btn} ${style['btn-prev']}`} onClick={handelPrevClick}>Prev</button>
                 {buttons}
                 <button className={`${style.btn} ${style['btn-next']}`} onClick={handelNextClick}>Next</button>

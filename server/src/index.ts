@@ -4,7 +4,7 @@ import ServiceLocator from "./ServiceLocator";
 import cors from "./middlewares/cors";
 
 const app = express();
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 8080;
 
 import costRouter from "./routers/cost-router";
 import categoryRouter  from './routers/category-router';

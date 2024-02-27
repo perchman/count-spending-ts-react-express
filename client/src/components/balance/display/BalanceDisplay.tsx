@@ -1,7 +1,7 @@
 import React from "react";
 import { FaCoins } from "react-icons/fa6";
 
-import style from "./BalanceDisplay.module.css";
+import style from "./BalanceDisplay.module.scss";
 
 interface BalanceDisplay {
     balance: string | null;

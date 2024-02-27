@@ -1,7 +1,7 @@
 import React from "react";
 import {NavLink, useLocation} from "react-router-dom";
 
-import style from "./Navbar.module.css";
+import style from "./Navbar.module.scss";
 
 interface NavItem {
     name: string;

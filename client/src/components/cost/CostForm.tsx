@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {CostDataForm} from "../../types/entities";
 
-import Form from "../common/form/Form";
 import DateField from "../common/form/fields/DateField";
 import DropdownField from "../common/form/fields/DropdownField";
 import NumberField from "../common/form/fields/NumberField";
@@ -26,7 +25,7 @@ export default function CostForm({cost, handlerSubmit}: CostForm) {
     }, [cost]);
 
     const getDataForDropdown = async () => {
-        return fetch('http://localhost:5000/category/sort=name_asc')
+        return fetch('http://localhost:8080/category/sort=name_asc')
             .then((res) => {
                 if (res.ok) {
                     return res.json();

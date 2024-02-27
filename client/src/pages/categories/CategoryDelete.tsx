@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 
-// import GoBackButton from "../../framework/components/buttons/goBackButton/GoBackButton.jsx";
-
-import style from "../Section.module.css";
 import Message from "../../components/common/message/Message";
-import GoBackButton from "../../components/common/buttons/goBack/GoBackButton";
+import GoBackButton from "../../components/common/buttons/GoBackButton";
+
+import style from "../Section.module.scss";
 
 export default function CategoryDelete() {
     const {uuid} = useParams();
@@ -16,7 +15,7 @@ export default function CategoryDelete() {
     });
 
     useEffect(() => {
-        fetch(`http://localhost:5000/category/uuid=${uuid}`, {
+        fetch(`http://localhost:8080/category/uuid=${uuid}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
