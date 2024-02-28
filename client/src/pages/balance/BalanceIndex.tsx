@@ -6,7 +6,7 @@ import BalanceDisplay from "../../components/balance/display/BalanceDisplay";
 import style from "../Section.module.scss";
 
 export default function BalanceIndex() {
-    const [balance, setBalance] = useState<string | null>(null);
+    const [balance, setBalance] = useState<string>('0');
 
     useEffect(() => {
         fetch('http://localhost:8080/balance')

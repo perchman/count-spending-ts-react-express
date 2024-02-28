@@ -4,7 +4,7 @@ import {GridHeader} from "../../../types/grid";
 
 import style from "./Grid.module.scss";
 
-export default function GridHeader<T>({fields, sort, setSort}: GridHeader<T>) {
+export default function GridHeader<T>({fields, sort, setSort, isButtons}: GridHeader<T>) {
     const elems = [];
 
     const requestSort = (key: string): void => {
@@ -36,7 +36,11 @@ export default function GridHeader<T>({fields, sort, setSort}: GridHeader<T>) {
         <thead className={style.header}>
             <tr className={style.row}>
                 {elems}
-                <th className={`${style['btn-cell']}`}></th>
+                {
+                    isButtons ?
+                        <th className={`${style['btn-cell']}`}></th> :
+                        null
+                }
             </tr>
         </thead>
     );

@@ -38,21 +38,28 @@ export default function Grid<T extends { uuid: string }>({requestEndpoint, field
     }, [sort, pageNum]);
 
     return (
-        <>
-            <table className={style.grid}>
-                <GridHeader<T> fields={fields} sort={sort} setSort={setSort} />
-                <GridBody<T>
-                    data={data.items}
-                    fields={fields}
-                    buttons={buttons}
-                />
-            </table>
-            <Pagination<T>
-                data={data}
-                pageNum={pageNum}
-                pageSize={options.pageSize}
-                setPageNum={setPageNum}
-            />
-        </>
+        data.items.length ? (
+            <>
+                <table className={style.grid}>
+                    <GridHeader<T> fields={fields} sort={sort} setSort={setSort} isButtons={buttons.length > 0}/>
+                    <GridBody<T>
+                        data={data.items}
+                        fields={fields}
+                        buttons={buttons}
+                    />
+                </table>
+                {
+                    options.pageSize <= data.totalCount ?
+                        ( <Pagination<T>
+                            data={data}
+                            pageNum={pageNum}
+                            pageSize={options.pageSize}
+                            setPageNum={setPageNum}
+                        /> ) : null
+                }
+            </>
+        ) : (
+            <div className={style['grid-message']}>No elements</div>
+        )
     );
 }

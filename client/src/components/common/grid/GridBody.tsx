@@ -23,14 +23,18 @@ export default function GridBody<T extends { uuid: string }>({data, fields, butt
         rows.push(
             <tr key={item.uuid} className={style.row}>
                 {cells}
-                <td className={`${style['btn-cell']}`}>
-                    {buttons.map((button) => {
-                        return <button.component
-                            url={button.createUrl(item.uuid)}
-                            key={`${button.key}-${item.uuid}`}
-                        />
-                    })}
-                </td>
+                {
+                    buttons.length > 0 ?
+                        <td className={`${style['btn-cell']}`}>
+                            {buttons.map((button) => {
+                                return <button.component
+                                    url={button.createUrl(item.uuid)}
+                                    key={`${button.key}-${item.uuid}`}
+                                />
+                            })}
+                        </td> :
+                        null
+                }
             </tr>
         );
     }

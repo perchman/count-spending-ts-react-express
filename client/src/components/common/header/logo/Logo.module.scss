@@ -9,3 +9,10 @@
     color: #0C1E5B;
   }
 }
+
+@media (max-width: 770px) {
+  .logo .title {
+    font-size: 18px;
+    padding: 4px;
+  }
+}

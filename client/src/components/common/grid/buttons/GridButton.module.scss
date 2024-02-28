@@ -1,0 +1,31 @@
+@mixin button($buttonColor, $iconColor) {
+  margin-top: 4px;
+  margin-left: 6px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  background-color: $buttonColor;
+  border-radius: 6px;
+  position: relative;
+
+  .icon {
+    color: $iconColor;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (max-width: 770px) {
+    width: 14px;
+    height: 14px;
+
+    .icon {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}

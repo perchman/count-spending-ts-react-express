@@ -29,3 +29,16 @@
     }
   }
 }
+
+@media (max-width: 770px){
+  .ol .item .link {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 575px) {
+  .ol {
+    padding-left: 0px;
+  }
+}

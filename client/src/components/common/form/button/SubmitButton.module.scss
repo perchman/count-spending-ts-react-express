@@ -12,3 +12,10 @@
     background-color: #ff504d;
   }
 }
+
+@media (max-width: 770px) {
+  .btn {
+    padding: 4px 14px;
+    font-size: 14px;
+  }
+}

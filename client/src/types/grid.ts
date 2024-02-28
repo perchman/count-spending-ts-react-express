@@ -20,6 +20,7 @@ export interface GridHeader<T> {
     fields: Fields<T>;
     sort: { key: string; direction: string };
     setSort: ({ key, direction }: { key: string, direction: string }) => void;
+    isButtons: boolean
 }
 
 export interface GridBody<T> {

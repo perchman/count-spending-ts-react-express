@@ -14,3 +14,13 @@
     }
   }
 }
+
+@media (max-width: 770px) {
+  .section {
+    margin: 45px 0;
+
+    .inner .title {
+      font-size: 20px;
+    }
+  }
+}

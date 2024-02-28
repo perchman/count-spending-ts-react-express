@@ -35,7 +35,7 @@ const config = {
         sort: {
             default: {key: 'date', direction: 'desc'}
         },
-        pageSize: 5
+        pageSize: 10
     },
     buttons: []
 }

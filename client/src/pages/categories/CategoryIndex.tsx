@@ -23,7 +23,7 @@ const config = {
         sort: {
             default: {key: 'name', direction: 'asc'}
         },
-        pageSize: 5
+        pageSize: 10
     },
     buttons: [
         {
